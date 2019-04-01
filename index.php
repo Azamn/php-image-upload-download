@@ -65,9 +65,15 @@ $query = mysqli_query($conn,$sql);
 
 if($query->num_rows > 0){
     while($row = $query->fetch_assoc()){
-        $imageURL = 'images/'.$row["file_name"];
+				$imageURL = 'images/'.$row["file_name"];
+				//echo $imageURL;
 ?>
-    <img src="<?php echo $imageURL; ?>" alt="" style="height:200px; width=200px;margin-left:50px;"/>
+		<div class="image" style="display:inline-block"> 
+    
+		<a style="display:block; text-align:center;" href="<?php echo $imageURL; ?>" download>
+		<img src="<?php echo $imageURL;?>" alt=""  style="height:200px; width=200px;margin-left:50px; display:block;"/>
+	Download</a>
+		</div>
 <?php }
 }else{ ?>
     <p>No image(s) found...</p>
